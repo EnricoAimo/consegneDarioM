@@ -1,0 +1,13 @@
+li{
+    margin-bottom: 50px; 
+}
+.immagine{
+    width: 300px;
+    height:auto;    
+}
+
+.collegamento{
+   font-size: 150% ;
+   color:black;
+   font-weight: bold;
+}
