@@ -61,6 +61,9 @@ var filmsJSON = [
 var precedente=document.getElementById("btnIndietro");
 var sucessivo=document.getElementById("btnAvanti");
 var trama=document.getElementById("btnTrama");
+var loginBtn=document.getElementById("btnLogin");
+var btnCompra;
+
 var indice=0;
 var film;
 var visibile=false; 
@@ -68,6 +71,8 @@ var visibile=false;
 precedente.addEventListener("click",diminuisci);
 sucessivo.addEventListener("click",aumenta);
 trama.addEventListener("click",mostraTrama);
+loginBtn.addEventListener("click",login);
+
 
 
 function visualizza(){
@@ -79,7 +84,7 @@ function visualizza(){
     locandina.setAttribute("class","immagine");  
 
     let regista= document.querySelector("#regista");    
-    titolo.textContent=filmsJSON[indice].regista; 
+    regista.textContent="Regista: "+filmsJSON[indice].regista; 
 
     let attori= document.querySelector("#attori");  
     while(attori.firstChild){
@@ -136,4 +141,91 @@ function mostraTrama(){
     }
 }
 
+
+function login(){
+    let user= document.querySelector("#username").value;
+    let password= document.querySelector("#password").value;
+    if(user!="" && password!=""){
+       let utente={
+        nome:user,
+        pass: password
+       }
+    
+        let utenteJSON = JSON.stringify(utente);
+        localStorage.setItem("utente",utenteJSON);
+
+        recuperaUtenza();
+        location.reload;   
+        loginBtn.removeEventListener("click", login);
+        loginBtn.textContent="logout";
+        loginBtn.addEventListener("click",logout);
+    }   
+    
+}
+
+function  logout(){
+    loginBtn.removeEventListener("click", logout);
+    loginBtn.textContent="login";
+    loginBtn.addEventListener("click",login);
+    localStorage.clear();
+    recuperaUtenza();
+    location.reload();
+}
+
+function recuperaUtenza(){
+    let utenteConnessoJSON = localStorage.getItem("utente");   
+    let utenteConnesso= JSON.parse(utenteConnessoJSON);
+    if(utenteConnesso!=null){
+        let compra=document.querySelector("#btnCompra");
+        if(compra==null){
+            compra = document.createElement("button");
+            compra.setAttribute("id","btnCompra")
+            compra.textContent="compra";        
+                        
+            let divLo=document.querySelector("#divLocandina") ;
+            divLo.insertBefore(document.createElement("br"),regista);
+            divLo.insertBefore(compra,regista)   ;     
+            compra.addEventListener("click",comprami);            
+        }
+        recuperaLista();
+    }
+}
+
+function recuperaLista(){
+    var carrello= document.querySelector("#carrello");
+    while(carrello.firstChild){
+        carrello.removeChild(carrello.firstChild);}
+    
+    let listaFilmJSON = localStorage.getItem("listaFilm");
+    let listaFilm= JSON.parse(listaFilmJSON);
+    if(listaFilm!=null){
+        listaFilm.films.forEach(element => {
+            let riga=document.createElement("li");
+            riga.textContent=element;
+            carrello.appendChild(riga);
+        });
+    }
+    else{
+        var l={
+            "films":[]
+        };
+        let filmsJSON = JSON.stringify(l);
+        localStorage.setItem("listaFilm",filmsJSON);
+    }
+}
+
+function comprami(){
+    
+    let listaFilmJSON = localStorage.getItem("listaFilm");
+    let listaFilm= JSON.parse(listaFilmJSON);
+    let titolo = filmsJSON[indice].titolo;
+    listaFilm.films[listaFilm.films.length]=titolo;
+    listaFilmJSON =JSON.stringify(listaFilm);
+    localStorage.setItem("listaFilm",listaFilmJSON);
+    recuperaLista();
+
+}
+
+
+recuperaUtenza();
 visualizza();

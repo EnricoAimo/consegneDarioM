@@ -1,4 +1,4 @@
-.wiki{    
+ .wiki{    
    color:black;
    font-weight: bold;   
 }
@@ -14,10 +14,10 @@ li{
     margin-left: -50px;
 }
 
-button{
+button,#password,#username{
     border-radius: 10px;
     margin-right: 30px;
-    margin-left:30px;
+    margin-left:30px;  
     border-color: orangered;
     color: rgb(13, 13, 64);
     padding-top: 10px;
@@ -25,6 +25,25 @@ button{
     padding-left: 5px;
     padding-right: 5px;
     font-weight:bolder;
-    background-color: rgb(232, 238, 245);
+    background-color:rgb(180, 202, 228); 
     
+}  
+
+.container{
+    width: 49%;  
+    height: 850px;  
+    border: 1px solid black;
+    float:left;
+}
+img{
+    height: 350px;
+    width: auto;
+}
+
+#btnLogin{
+    margin-top: 30px;
+}
+
+#password{
+    margin-top: 10px;
 }
