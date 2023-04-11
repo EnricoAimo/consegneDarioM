@@ -23,6 +23,37 @@ var filmsJSON = [
         durata: 170,
         poster: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg" ,
         trama: "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence."
+    },
+    {
+        titolo: "Blade Runner",
+        regista: "Ridley Scott",
+        attori:["Harrison Ford",
+        "Rutger Hauer", 
+        "Sean Young"
+        ],
+        durata: 117,
+        poster: "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        trama:"A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator.",
+    },
+    {
+        titolo: "Drive",
+        regista: "Nicolas Winding Refn",
+        attori:["Ryan Gosling", 
+        "Carey Mulligan", 
+        "Bryan Cranston"],
+        durata: 100,
+        poster: "https://m.media-amazon.com/images/M/MV5BZjY5ZjQyMjMtMmEwOC00Nzc2LTllYTItMmU2MzJjNTg1NjY0XkEyXkFqcGdeQXVyNjQ1MTMzMDQ@._V1_SX300.jpg",
+        trama:"A mysterious Hollywood action film stuntman gets in trouble with gangsters when he tries to help his neighbor's husband rob a pawn shop while serving as his getaway driver"
+    },
+    {
+        titolo: "Interstellar",
+        regista: "Christopher Nolan",
+        attori:["Matthew McConaughey",
+         "Anne Hathaway",
+          "Jessica Chastain"],
+        durata: 169,
+        poster: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+        trama:"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."
     }
 ];
 

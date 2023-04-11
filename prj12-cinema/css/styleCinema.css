@@ -1,5 +1,15 @@
 .wiki{    
    color:black;
    font-weight: bold;   
-    
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+     background-color:rgb(169,192,219);     
+      text-align: center;  
+    }
+
+li{
+    list-style: none;
+    margin-left: -50px;
 }
